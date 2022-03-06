@@ -16,6 +16,6 @@ done
 search=`find $input_folder -type f -name "*.$extension"`
 result=$search
 mkdir $backup_folder
-cp $result $backup_folder/
+cp --parent $result $backup_folder/
 tar -czf $backup_archive_name $backup_folder
 echo "done"
