@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
+include_directories(include)
 
 set(CMAKE_C_COMPILER ${TOOLCHAIN}/aarch64-linux-gnu-gcc)
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN}/aarch64-linux-gnu-g++)
 project(SimpleLibrary)
-include_directories(include)
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/bin)
@@ -19,5 +19,5 @@ set_property(TARGET MainLib PROPERTY  PUBLIC_HEADER "${SimpleLibrary_SOURCE_DIR}
 target_link_libraries(MainLib buffer)
 
 
-install(TARGET Main DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-install(TARGET MainLib DESTINATION ${CMAKE_INSTALL_PREFIX}/bin PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/INCLUDE)
+install(TARGETS Main DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+install(TARGETS MainLib DESTINATION ${CMAKE_INSTALL_PREFIX}/bin PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
